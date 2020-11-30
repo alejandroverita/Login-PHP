@@ -37,19 +37,24 @@ try{
 
     //Evaluando si usuario existe o no. Existe devuelve 1. No existe devuelve 0
     if($numero_registro!=0){
-        echo "<h2> Adelante Ecuatoriano Adelante </h2>";
+        //echo "<h2> Adelante Ecuatoriano Adelante </h2>";
+        //hacer inicio de sesion cn funcion session_start();
+
+        session_start();
+
+        //despues almacenar en variable super global el login
+
+        $_SESSION["usuario"]=$_POST["login"];
+        $_SESSION["password"]=$_POST["password"];
+
+        header("Location:usuariosRegistrados.php");
+
     }
     else
     {
         //redirigir a la misma pagina de registro
         header("location:login.php");
-
-
-
     }
-
-
-
 
 } catch (Exception $e) {
 
